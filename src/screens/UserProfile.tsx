@@ -1,10 +1,10 @@
 import {View, Text} from 'react-native';
 import React from 'react';
 
-export default function DashBoard() {
+export default function UserProfile() {
   return (
     <View>
-      <Text>DashBoard</Text>
+      <Text>User Profile</Text>
     </View>
   );
 }
