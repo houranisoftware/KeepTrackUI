@@ -1,10 +1,11 @@
 import {configureStore} from '@reduxjs/toolkit';
 import {TypedUseSelectorHook, useSelector} from 'react-redux';
-import workoutReducer from './workout/slice';
+import {workoutReducer, workoutListReducer} from './workout/slice';
 
 const store = configureStore({
   reducer: {
     workoutReducer,
+    workoutListReducer,
   },
 });
 

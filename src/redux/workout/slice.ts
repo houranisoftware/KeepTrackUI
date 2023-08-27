@@ -1,20 +1,9 @@
 import {createSlice, PayloadAction} from '@reduxjs/toolkit';
-
-type InitialWorkoutState = {
-  value: WorkoutState;
-};
-
-type WorkoutState = {
-  id: number;
-  name: string;
-  description: string;
-  sets: number;
-  reps: number;
-};
-
-type WorkoutList = {
-  value: WorkoutState[];
-};
+import {
+  WorkoutState,
+  InitialWorkoutStateList,
+  InitialWorkoutState,
+} from './types';
 
 const initialWorkoutState = {
   value: {
@@ -28,7 +17,7 @@ const initialWorkoutState = {
 
 const initialWorkoutStateList = {
   value: [] as WorkoutState[],
-} as WorkoutList;
+} as InitialWorkoutStateList;
 
 export const workout = createSlice({
   name: 'workout',
@@ -55,4 +44,6 @@ export const workoutList = createSlice({
 
 export const {setWorkoutList, deleteWorkout} = workoutList.actions;
 export const {setWorkout} = workout.actions;
-export default workout.reducer;
+
+export const workoutReducer = workout.reducer;
+export const workoutListReducer = workoutList.reducer;
