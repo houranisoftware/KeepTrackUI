@@ -1,0 +1,38 @@
+[
+    {
+      "id": 1,
+      "name": "Push-ups",
+      "description": "Basic bodyweight exercise",
+      "sets": 3,
+      "reps": 15
+    },
+    {
+      "id": 2,
+      "name": "Squats",
+      "description": "Lower body exercise",
+      "sets": 4,
+      "reps": 12
+    },
+    {
+      "id": 3,
+      "name": "Plank",
+      "description": "Core strengthening exercise",
+      "sets": 2,
+      "reps": 30
+    },
+    {
+      "id": 4,
+      "name": "Pull-ups",
+      "description": "Upper body exercise",
+      "sets": 3,
+      "reps": 8
+    },
+    {
+      "id": 5,
+      "name": "Burpees",
+      "description": "Full-body exercise",
+      "sets": 3,
+      "reps": 10
+    }
+  ]
+  

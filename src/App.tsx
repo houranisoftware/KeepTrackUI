@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import {NavigationContainer} from '@react-navigation/native';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import {FontAwesomeIcon} from '@fortawesome/react-native-fontawesome';
@@ -14,9 +14,27 @@ import UserProfile from './screens/UserProfile';
 import Workout from './screens/Workout';
 import MyWeek from './screens/MyWeek';
 
+import {storage} from './services/mmkvService';
+import {WorkoutState} from './redux/workout/types';
+import {setWorkoutList} from './redux/workout/slice';
+import {useDispatch} from 'react-redux';
 const Tab = createBottomTabNavigator();
 
 export default function App() {
+  const dispatch = useDispatch();
+  const workoutListArray: string | null | undefined =
+    storage.getString('workoutList');
+
+  useEffect(() => {
+    if (workoutListArray !== null) {
+      const workoutList: WorkoutState[] = JSON.parse(workoutListArray!);
+      dispatch(setWorkoutList(workoutList));
+      console.log(workoutList);
+    } else {
+      console.log('No workouts');
+    }
+  }, [workoutListArray, dispatch]);
+
   return (
     <NavigationContainer>
       <Tab.Navigator initialRouteName="Dashboard">
