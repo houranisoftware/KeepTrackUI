@@ -1,12 +1,19 @@
-import {Text, View} from 'react-native';
+import {ScrollView, Text, View} from 'react-native';
 import React, {Component} from 'react';
+import {SafeAreaView} from 'react-native-safe-area-context';
+import {storage} from '../services/mmkvService';
 
 export default class Workout extends Component {
   render() {
     return (
-      <View>
-        <Text>Workout</Text>
-      </View>
+      <SafeAreaView>
+        {storage.contains('workouts') ? (
+          <Text>Theres workouts</Text>
+        ) : (
+          <Text>Theres no workouts</Text>
+        )}
+        <ScrollView></ScrollView>
+      </SafeAreaView>
     );
   }
 }
