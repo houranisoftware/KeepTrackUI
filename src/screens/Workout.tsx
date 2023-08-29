@@ -9,7 +9,6 @@ const Workout = () => {
   const workoutList: WorkoutState[] = useAppSelector(
     state => state.workoutListReducer.value,
   );
-  console.log(workoutList);
   return (
     <>
       <ScrollView>
