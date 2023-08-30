@@ -3,11 +3,23 @@ import React, {useState} from 'react';
 import {faCirclePlus} from '@fortawesome/free-solid-svg-icons';
 import {FontAwesomeIcon} from '@fortawesome/react-native-fontawesome';
 import WorkoutCreationSlideUpModal from './modals/WorkoutCreationSlideUpModal';
+import {WorkoutState} from '../../redux/workout/types';
+
 const WorkoutCreationButton: React.FC = () => {
   const [
     workoutCreationSlideUpModalVisible,
     setWorkoutCreationSlideUpModalVisible,
   ] = useState(false);
+
+  const [workoutData, setWorkoutData] = useState<WorkoutState>(
+    {} as WorkoutState,
+  );
+
+  const onSubmit = (workout: WorkoutState) => {
+    setWorkoutData(workout);
+    console.log(workout);
+    setWorkoutCreationSlideUpModalVisible(false);
+  };
   return (
     <>
       <View style={styles.plusButton}>
@@ -20,6 +32,7 @@ const WorkoutCreationButton: React.FC = () => {
       <WorkoutCreationSlideUpModal
         visible={workoutCreationSlideUpModalVisible}
         onClose={() => setWorkoutCreationSlideUpModalVisible(false)}
+        onSave={onSubmit}
       />
     </>
   );

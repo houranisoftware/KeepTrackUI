@@ -2,7 +2,7 @@ export type InitialWorkoutState = {
   value: WorkoutState;
 };
 
-enum WorkoutCategory {
+export enum WorkoutCategory {
   PUSH,
   PULL,
   LEGS,
@@ -13,6 +13,7 @@ export type WorkoutState = {
   name: string;
   description: string;
   category: WorkoutCategory;
+  weight: number;
   sets: number;
   reps: number;
 };
